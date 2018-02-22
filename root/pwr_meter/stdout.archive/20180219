@@ -1,0 +1,37 @@
+Running!
+Traceback (most recent call last):
+  File "/root/pwr_meter/tSerial.py", line 7, in <module>
+    s = ser.read(34)
+  File "/usr/lib/python2.7/site-packages/serial/serialposix.py", line 501, in read
+    'device reports readiness to read but returned no data '
+serial.serialutil.SerialException: device reports readiness to read but returned no data (device disconnected or multiple access on port?)
+Traceback (most recent call last):
+  File "/root/pwr_meter/tSerial.py", line 4, in <module>
+    ser = serial.Serial('/dev/ttyACM0', 9600, timeout=1)
+  File "/usr/lib/python2.7/site-packages/serial/serialutil.py", line 240, in __init__
+    self.open()
+  File "/usr/lib/python2.7/site-packages/serial/serialposix.py", line 268, in open
+    raise SerialException(msg.errno, "could not open port {}: {}".format(self._port, msg))
+serial.serialutil.SerialException: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+Running!
+Traceback (most recent call last):
+  File "/root/pwr_meter/tSerial.py", line 7, in <module>
+    s = ser.read(34)
+  File "/usr/lib/python2.7/site-packages/serial/serialposix.py", line 501, in read
+    'device reports readiness to read but returned no data '
+serial.serialutil.SerialException: device reports readiness to read but returned no data (device disconnected or multiple access on port?)
+Running!
+Traceback (most recent call last):
+  File "/root/pwr_meter/tSerial.py", line 7, in <module>
+    s = ser.read(34)
+  File "/usr/lib/python2.7/site-packages/serial/serialposix.py", line 501, in read
+    'device reports readiness to read but returned no data '
+serial.serialutil.SerialException: device reports readiness to read but returned no data (device disconnected or multiple access on port?)
+Running!
+Traceback (most recent call last):
+  File "/root/pwr_meter/tSerial.py", line 7, in <module>
+    s = ser.read(34)
+  File "/usr/lib/python2.7/site-packages/serial/serialposix.py", line 501, in read
+    'device reports readiness to read but returned no data '
+serial.serialutil.SerialException: device reports readiness to read but returned no data (device disconnected or multiple access on port?)
+Running!

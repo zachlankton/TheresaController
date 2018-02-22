@@ -1,0 +1,35 @@
+Traceback (most recent call last):
+  File "/root/pwr_meter/tSerial.py", line 7, in <module>
+    s = ser.read(34)
+  File "/usr/lib/python2.7/site-packages/serial/serialposix.py", line 501, in read
+    'device reports readiness to read but returned no data '
+serial.serialutil.SerialException: device reports readiness to read but returned no data (device disconnected or multiple access on port?)
+Running!
+Traceback (most recent call last):
+  File "/root/pwr_meter/tSerial.py", line 7, in <module>
+    s = ser.read(34)
+  File "/usr/lib/python2.7/site-packages/serial/serialposix.py", line 501, in read
+    'device reports readiness to read but returned no data '
+serial.serialutil.SerialException: device reports readiness to read but returned no data (device disconnected or multiple access on port?)
+Running!
+Traceback (most recent call last):
+  File "/root/pwr_meter/tSerial.py", line 7, in <module>
+    s = ser.read(34)
+  File "/usr/lib/python2.7/site-packages/serial/serialposix.py", line 501, in read
+    'device reports readiness to read but returned no data '
+serial.serialutil.SerialException: device reports readiness to read but returned no data (device disconnected or multiple access on port?)
+Running!
+Traceback (most recent call last):
+  File "/root/pwr_meter/tSerial.py", line 7, in <module>
+    s = ser.read(34)
+  File "/usr/lib/python2.7/site-packages/serial/serialposix.py", line 501, in read
+    'device reports readiness to read but returned no data '
+serial.serialutil.SerialException: device reports readiness to read but returned no data (device disconnected or multiple access on port?)
+Running!
+Traceback (most recent call last):
+  File "/root/pwr_meter/tSerial.py", line 7, in <module>
+    s = ser.read(34)
+  File "/usr/lib/python2.7/site-packages/serial/serialposix.py", line 501, in read
+    'device reports readiness to read but returned no data '
+serial.serialutil.SerialException: device reports readiness to read but returned no data (device disconnected or multiple access on port?)
+Running!
