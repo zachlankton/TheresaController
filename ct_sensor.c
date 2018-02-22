@@ -15,29 +15,25 @@ void setup() {
 }
 
 void loop() {
- delay(739);
- startT = millis();
-
-  String values = "";
+ delay(219);
+ 
+  uint8_t values[34];
   for (int i=0; i<16; i++){
-    float value = readCT(ct_channel[i]);
-    values += (String)value + " ";
+    uint16_t value = readCT(ct_channel[i]);
+    values[i*2] = highByte(value);
+    values[i*2+1] = lowByte(value);
   }
-  
-  endT = millis();
-  Serial.println(values);
-  Serial.print("Milliseconds to calc: ");
-  Serial.println(endT - startT);
-  
-  
-
+    values[32] = 0xFF;
+    values[33] = 0xFF;
+    
+    Serial.write(values, 34);
 }
 
-float readCT(int pin){
+uint16_t readCT(int pin){
   
   // Read 32 samples, each every 500us
-  int reads[32];
-  for (int i=0; i<32; i++){
+  int reads[96];
+  for (int i=0; i<96; i++){
       delayMicroseconds(500);
       reads[i] = analogRead(pin);
   }
@@ -60,5 +56,5 @@ float readCT(int pin){
       sum += (mv * mv);
   }
   
-  return(sqrt(sum/32)*30);
+  return(sqrt(sum/32)*30*100);
 }
