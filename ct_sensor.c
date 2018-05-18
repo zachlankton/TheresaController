@@ -1,4 +1,5 @@
 int ct_channel[16] = {A14, A15, A16, A17,    A18, A19, A20, A21,    A2, A3, A4, A5,    A6, A7, A8, A9};
+int led = 13;
 
 unsigned long startT;
 unsigned long endT;
@@ -8,7 +9,8 @@ float voltsPerStep = 3.3 / 4096;
 void setup() {
   Serial.begin(9600);
   analogReadResolution(12);
-  
+  pinMode(led, OUTPUT);
+  digitalWrite(led, HIGH);
   delay(2000);
   
 
