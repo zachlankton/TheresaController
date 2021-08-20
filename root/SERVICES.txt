@@ -1,0 +1,4 @@
+Services For Running Theresa Monitor
+
+systemctl status theresa-server
+systemctl status heater-band-monitor

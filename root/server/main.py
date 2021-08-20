@@ -29,7 +29,9 @@ class S(BaseHTTPRequestHandler):
         elif (self.path == "/list_hb_data"): listHBData(self)
         elif (self.path.find("/hb_data/") > -1): loadHBData(self)
         elif (self.path == "/tail"): getLastMinute(self)
+        elif (self.path == "/tail10"): getLast10Minute(self)
         elif (self.path == "/shotlog"): loadShotLog(self)
+        elif (self.path.find("/shotlog/") > -1): loadShotLogFromDate(self)
         else: load404(self)
 
     def do_HEAD(self):
@@ -44,6 +46,22 @@ def loadIndex(self):
 	fi = open("/root/server/index.html")
 	self._set_headers()
 	self.wfile.write(fi.read())
+	
+
+def getLast10Minute(self):
+	files = getHBDataList()
+	fLen = len(files)
+	lastFile = open("/root/pwr_meter/data/" + files[fLen - 1])
+	curFile = open("/root/pwr_meter/data.dat")
+	newFile = lastFile.read() + curFile.read()
+	
+	lastFile.close()
+	curFile.close()
+	
+	self.send_response(200)
+	self.send_header('Content-type', 'text/plain')
+	self.end_headers()
+	self.wfile.write(newFile[-20400:])
 	
 
 def listHBData(self):
@@ -81,6 +99,7 @@ def loadHBData(self):
 	self.send_header('Content-type', 'application/octet-stream')
 	self.end_headers()
 	self.wfile.write(data.read())
+	data.close()
 	
 def loadShotLog(self):
 	f = open("/root/shot_counter/log.txt")
@@ -92,6 +111,18 @@ def loadShotLog(self):
 	self.wfile.write(f.read())
 	f.close()
 	
+
+def loadShotLogFromDate(self):
+        filename = self.path[9:]
+        f = open("/root/shot_counter/archive/" + filename)
+        
+        self.send_response(200)
+        self.send_header('Content-type', 'text/plain')
+        self.end_headers()
+        
+        self.wfile.write(f.read())
+        f.close()
+        
 def load404(self):
 	self._set_headers()
 	self.wfile.write("404")
