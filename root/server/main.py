@@ -43,7 +43,7 @@ class S(BaseHTTPRequestHandler):
         self.wfile.write("<html><body><h1>POST!</h1></body></html>")
         
 def loadIndex(self):
-	fi = open("/root/server/index.html")
+	fi = open("index.html")
 	self._set_headers()
 	self.wfile.write(fi.read())
 	
@@ -51,8 +51,8 @@ def loadIndex(self):
 def getLast10Minute(self):
 	files = getHBDataList()
 	fLen = len(files)
-	lastFile = open("/root/pwr_meter/data/" + files[fLen - 1])
-	curFile = open("/root/pwr_meter/data.dat")
+	lastFile = open("../pwr_meter/data/" + files[fLen - 1])
+	curFile = open("../pwr_meter/data.dat")
 	newFile = lastFile.read() + curFile.read()
 	
 	lastFile.close()
@@ -75,7 +75,7 @@ def listHBData(self):
 	self.wfile.write(text)
 	
 def getHBDataList():
-	mypath = "/root/pwr_meter/data"
+	mypath = "../pwr_meter/data"
 	onlyfiles = [f for f in listdir(mypath) if isfile(join(mypath, f))]
 	onlyfiles.sort(key=long)
 	return onlyfiles
@@ -91,9 +91,9 @@ def loadHBData(self):
 		self.wfile.write(text)
 		return 0
 	elif (filename == "data.dat"):
-		data = open("/root/pwr_meter/data.dat")
+		data = open("../pwr_meter/data.dat")
 	else:
-		data = open("/root/pwr_meter/data/" + filename)
+		data = open("../pwr_meter/data/" + filename)
 		
 	self.send_response(200)
 	self.send_header('Content-type', 'application/octet-stream')
@@ -102,7 +102,7 @@ def loadHBData(self):
 	data.close()
 	
 def loadShotLog(self):
-	f = open("/root/shot_counter/log.txt")
+	f = open("../shot_counter/log.txt")
 	
 	self.send_response(200)
 	self.send_header('Content-type', 'text/plain')
@@ -114,7 +114,7 @@ def loadShotLog(self):
 
 def loadShotLogFromDate(self):
         filename = self.path[9:]
-        f = open("/root/shot_counter/archive/" + filename)
+        f = open("../shot_counter/archive/" + filename)
         
         self.send_response(200)
         self.send_header('Content-type', 'text/plain')
@@ -130,7 +130,7 @@ def load404(self):
 def run(server_class=HTTPServer, handler_class=S, port=800):
     server_address = ('', port)
     httpd = server_class(server_address, handler_class)
-    print 'Starting httpd...'
+    print('Starting httpd...')
     httpd.serve_forever()
 
 def getLastMinute(self):
