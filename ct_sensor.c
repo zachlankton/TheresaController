@@ -33,9 +33,9 @@ void loop() {
 
 uint16_t readCT(int pin){
   
-  // Read 96 samples, each every 500us
-  int reads[96];
-  for (int i=0; i<96; i++){
+  // Read 32 samples, each every 500us
+  int reads[32];
+  for (int i=0; i<32; i++){
       delayMicroseconds(500);
       reads[i] = analogRead(pin);
   }
