@@ -33,7 +33,7 @@ void loop() {
 
 uint16_t readCT(int pin){
   
-  // Read 32 samples, each every 500us
+  // Read 96 samples, each every 500us
   int reads[96];
   for (int i=0; i<96; i++){
       delayMicroseconds(500);
